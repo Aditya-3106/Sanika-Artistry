@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanika Artistry - Your Personality Defines You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="sannnn/logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg-primary: #FEF9F7;
+            --bg-secondary: #F7EBE7;
+            --bg-accent: #E8D5CE;
+            --text-dark: #1F1D1B;
+            --text-medium: #4A4541;
+            --text-light: #8A847D;
+            --accent-primary: #C4776C;
+            --accent-secondary: #D4917F;
+            --accent-tertiary: #B86B5E;
+            --border-soft: rgba(196, 119, 108, 0.15);
+            --card-bg: #FFFFFF;
+            --shadow-color: rgba(196, 119, 108, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Ambient Background */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .ambient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #E8D5CE 0%, #D4917F 100%);
+            top: -200px;
+            right: -100px;
+            animation: float-orb 20s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #C4776C 0%, #E8D5CE 100%);
+            bottom: -100px;
+            left: -100px;
+            animation: float-orb 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float-orb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.05); }
+        }
+
+        /* Noise Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-scrolled {
+            background: rgba(254, 249, 247, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px var(--shadow-color);
+        }
+
+        .nav-link {
+            position: relative;
+            color: var(--text-medium);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-primary);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-link:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-tertiary) 100%);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(196, 119, 108, 0.3);
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(196, 119, 108, 0.4);
+        }
+
+        /* Hero Section */
+        .hero-title {
+            font-size: clamp(2.5rem, 10vw, 5.5rem);
+            line-height: 1.05;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title .highlight {
+            display: block;
+            font-style: italic;
+            font-weight: 400;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-image-frame {
+            position: relative;
+            border-radius: 300px 300px 20px 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(196, 119, 108, 0.2);
+        }
+
+        .hero-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-image-frame:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Decorative Elements */
+        .deco-circle {
+            position: absolute;
+            border: 1.5px solid var(--border-soft);
+            border-radius: 50%;
+            animation: rotate-slow 30s linear infinite;
+        }
+
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Section Styles */
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-primary);
+        }
+
+        .section-label::before {
+            content: '';
+            width: 30px;
+            height: 1.5px;
+            background: var(--accent-primary);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title .highlight {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent-primary);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px var(--shadow-color);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px var(--shadow-color);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-accent) 100%);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(31, 29, 27, 0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(31, 29, 27, 0.95);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+        }
+
+        .lightbox-content img,
+        .lightbox-content video {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            width: 44px;
+            height: 44px;
+            background: white;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-prev { left: -70px; }
+        .lightbox-next { right: -70px; }
+
+        /* Progress Circle */
+        .progress-circle {
+            position: relative;
+            width: 140px;
+            height: 140px;
+        }
+
+        .progress-circle svg {
+            transform: rotate(-90deg);
+        }
+
+        .progress-circle .bg-circle {
+            fill: none;
+            stroke: var(--bg-secondary);
+            stroke-width: 8;
+        }
+
+        .progress-circle .progress-ring {
+            fill: none;
+            stroke: url(#progressGradient);
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke-dasharray: 377;
+            stroke-dashoffset: 377;
+            transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .progress-value {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            z-index: 150;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transform: translateX(100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu a {
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent-primary);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            width: 32px;
+            height: 24px;
+            position: relative;
+            cursor: pointer;
+            z-index: 200;
+        }
+
+        .hamburger span {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger span:nth-child(3) { bottom: 0; }
+
+        .hamburger.active span:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            bottom: 50%;
+            transform: translateY(50%) rotate(-45deg);
+        }
+
+        /* Contact Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(31, 29, 27, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-box {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 25px 50px var(--shadow-color);
+        }
+        .modal-overlay.active .modal-box {
+            transform: translateY(0);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
+        }
+        .modal-close-btn:hover {
+            color: var(--accent-primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .lightbox-nav {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item.tall {
+                grid-row: span 1;
+            }
+
+            .hero-image-frame {
+                border-radius: 200px 200px 20px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-bg">
+        <div class="ambient-orb orb-1"></div>
+        <div class="ambient-orb orb-2"></div>
+    </div>
+
+    <div class="noise-overlay"></div>
+
+    <svg width="0" height="0">
+        <defs>
+            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#C4776C"/>
+                <stop offset="100%" style="stop-color:#D4917F"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <nav class="nav-container" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 lg:h-24">
+                <a href="#" class="font-display text-2xl lg:text-3xl font-semibold" style="color: var(--accent-primary);">
+                    Sanika Artistry
+                </a>
+
+                <div class="hidden lg:flex items-center gap-10">
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                    <a href="#services" class="nav-link">Services</a>
+                </div>
+
+                <button class="hamburger lg:hidden" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#services">Services</a>
+    </div>
+
+    <section class="min-h-screen flex items-center pt-24 lg:pt-0 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="reveal">
+                        <p class="section-label mb-6">Welcome to Sanika Artistry</p>
+                    </div>
+                    <h1 class="hero-title font-display reveal" style="transition-delay: 0.1s;">
+                        Your Personality
+                        <span class="highlight">is What Makes</span>
+                        You Character
+                    </h1>
+                    <p class="mt-6 text-lg lg:text-xl font-light leading-relaxed reveal" style="color: var(--text-medium); transition-delay: 0.2s; max-width: 500px;">
+                        Discover the essence of your unique beauty. We celebrate individuality and help you embrace your authentic self through transformative experiences.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-8 reveal" style="transition-delay: 0.3s;">
+                        <a href="#" class="btn-primary btn-book">
+                            Book Consultation
+                        </a>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 reveal">
+                    <div class="relative">
+                        <div class="deco-circle absolute -top-8 -right-8 w-32 h-32 lg:w-40 lg:h-40" style="animation-duration: 25s;"></div>
+                        <div class="deco-circle absolute -bottom-6 -left-6 w-24 h-24 lg:w-28 lg:h-28" style="animation-duration: 20s; animation-direction: reverse;"></div>
+
+                        <div class="hero-image-frame aspect-[3/4] max-w-sm mx-auto lg:max-w-none">
+                            <img src="sannnn/9.jpeg" alt="Portrait" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="artist-info" class="py-20 lg:py-32" style="background-color: var(--bg-primary);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                
+                <div class="order-2 lg:order-1 reveal">
+                    <div class="relative mb-6">
+                        <div class="absolute -top-10 left-1/2 flex gap-2" style="color: #641E16;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                            </svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="mt-4">
+                                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                            </svg>
+                        </div>
+                        <h2 class="hero-title font-display" style="font-size: clamp(2.5rem, 6vw, 4rem); color: #4A2B29; line-height: 1.1;">
+                            Your Personality is<br>
+                            What Makes You<br>
+                            Character
+                        </h2>
+                    </div>
+                    
+                    <div class="mt-8 font-medium leading-relaxed" style="color: var(--text-dark); max-w-md;">
+                        <p class="text-xl mb-2 flex items-center gap-3">
+                            <span style="color: var(--accent-primary);">Contact Number:</span> 
+                            +91 8830104350
+                        </p>
+                        <p class="text-xl mb-2 flex items-center gap-3">
+                            <span style="color: var(--accent-primary);">WhatsApp:</span> 
+                            +91 8830104350
+                        </p>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 reveal relative mt-10 lg:mt-0">
+                    <div class="relative max-w-sm mx-auto">
+                        <div class="w-full aspect-[4/5] rounded-[3rem] relative overflow-hidden" style="background-color: #F6AEB5; border-top-left-radius: 6rem;">
+                            <img src="sannnn/2.jpeg" alt="Sanika Artist" class="w-full h-full object-cover opacity-90 mix-blend-multiply mt-6">
+                            
+
+                        </div>
+
+                        <div class="absolute top-1/2 -right-4 lg:-right-8 -translate-y-1/2 flex flex-col gap-3">
+                            <div class="w-6 h-6 rounded-full" style="background-color: #F0D5CD; box-shadow: 0 2px 4px rgba(0,0,0,0.05);"></div>
+                            <div class="w-6 h-6 rounded-full" style="background-color: #D67D78; box-shadow: 0 2px 4px rgba(0,0,0,0.05);"></div>
+                            <div class="w-6 h-6 rounded-full" style="background-color: #4A1A1E; box-shadow: 0 2px 4px rgba(0,0,0,0.05);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="reveal-left">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <div class="aspect-[3/4] rounded-3xl overflow-hidden group">
+                                <img src="sannnn/10.jpeg">
+                            </div>
+                            <div class="aspect-square rounded-3xl overflow-hidden group">
+                                <img src="sannnn/AMP01346_1.jpg.jpeg">
+                            </div>
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <div class="aspect-square rounded-3xl overflow-hidden group">
+                                <img src="sannnn/7.jpeg" alt="Style" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div class="aspect-[3/4] rounded-3xl overflow-hidden group">
+                                <img src="sannnn/DSC06086.jpg.jpeg" alt="Elegance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-right">
+                    <p class="section-label mb-6">About Us</p>
+                    <h2 class="section-title font-display mb-6">
+                        We Can Help
+                        <span class="highlight">Transform You</span>
+                    </h2>
+                    <p class="text-lg font-light leading-relaxed mb-4" style="color: var(--text-medium);">
+                        Our philosophy centers on celebrating the unique beauty that makes you, you. We believe transformation is not about changing who you are, but revealing the most radiant version of yourself.
+                    </p>
+                    <p class="font-light leading-relaxed mb-8" style="color: var(--text-light);">
+                        With over a decade of experience in personal styling, beauty consulting, and image transformation, our team brings expertise, passion, and an artistic eye to every client journey.
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-4 lg:gap-6 mb-8">
+                        <div class="text-center p-4 rounded-2xl" style="background: var(--bg-secondary);">
+                            <p class="font-display text-3xl lg:text-4xl font-semibold" style="color: var(--accent-primary);">1+</p>
+                            <p class="text-xs lg:text-sm mt-1" style="color: var(--text-light);">Years</p>
+                        </div>
+                        <div class="text-center p-4 rounded-2xl" style="background: var(--bg-secondary);">
+                            <p class="font-display text-3xl lg:text-4xl font-semibold" style="color: var(--accent-primary);">50+</p>
+                            <p class="text-xs lg:text-sm mt-1" style="color: var(--text-light);">Projects</p>
+                        </div>
+                        <div class="text-center p-4 rounded-2xl" style="background: var(--bg-secondary);">
+                            <p class="font-display text-3xl lg:text-4xl font-semibold" style="color: var(--accent-primary);">98%</p>
+                            <p class="text-xs lg:text-sm mt-1" style="color: var(--text-light);">Happy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-20 lg:py-32" style="background: var(--bg-secondary);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+                <p class="section-label justify-center mb-6">Gallery</p>
+                <h2 class="section-title font-display">
+                    Our Creative
+                    <span class="highlight">Portfolio</span>
+                </h2>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item reveal" style="transition-delay: 0.1s;">
+                    <img src="sannnn/DSC06088.jpg.jpeg" alt="Portrait">
+                    <div class="gallery-overlay">
+                        <h4 class="text-white font-semibold">Natural Beauty</h4>
+                        <p class="text-sm text-white opacity-75">Makeover Session</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item tall" style="transition-delay: 0.15s;">
+                    <video src="sannnn/model.mp4" loop playsinline></video>
+                    <div class="gallery-overlay">
+                        <h4 class="text-white font-semibold">Beauty Session</h4>
+                        <p class="text-sm text-white opacity-75">Behind The Scenes</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" style="transition-delay: 0.2s;">
+                    <img src="sannnn/AMP01359_1.jpg.jpeg" alt="Fashion">
+                    <div class="gallery-overlay">
+                        <h4 class="text-white font-semibold">Editorial Look</h4>
+                        <p class="text-sm text-white opacity-75">Fashion Shoot</p>
+                    </div>
+                </div>
+
+
+                <div class="gallery-item reveal" style="transition-delay: 0.2s;">
+                    <img src="sannnn/12.jpeg" alt="Fashion">
+                    <div class="gallery-overlay">
+                        <h4 class="text-white font-semibold">Editorial Look</h4>
+                        <p class="text-sm text-white opacity-75">Fashion Shoot</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="transition-delay: 0.3s;">
+                    <img src="sannnn/DSC06068.jpg.jpeg" alt="Style">
+                    <div class="gallery-overlay">
+                        <h4 class="text-white font-semibold">Style Evolution</h4>
+                        <p class="text-sm text-white opacity-75">Personal Styling</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item tall" style="transition-delay: 0.35s;">
+                    <video src="sannnn/sanii.mp4" loop playsinline></video>
+                    <div class="gallery-overlay">
+                        <h4 class="text-white font-semibold">Final Glamour</h4>
+                        <p class="text-sm text-white opacity-75">Flawless Finish</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="transition-delay: 0.4s;">
+                    <img src="sannnn/4.jpeg" alt="Fashion">
+                    <div class="gallery-overlay">
+                        <h4 class="text-white font-semibold">Runway Ready</h4>
+                        <p class="text-sm text-white opacity-75">Editorial Spread</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="transition-delay: 0.45s;">
+                    <img src="sannnn/AMP01342_1.jpg.jpeg" alt="Portrait">
+                    <div class="gallery-overlay">
+                        <h4 class="text-white font-semibold">Radiant Glow</h4>
+                        <p class="text-sm text-white opacity-75">Beauty Portrait</p>
+                    </div>
+                </div>
+
+                                <div class="gallery-item" style="transition-delay: 0.4s;">
+                    <img src="sannnn/AMP01365_1.jpg.jpeg" alt="Fashion">
+                    <div class="gallery-overlay">
+                        <h4 class="text-white font-semibold">Runway Ready</h4>
+                        <p class="text-sm text-white opacity-75">Editorial Spread</p>
+                    </div>
+                </div>
+
+                                <div class="gallery-item" style="transition-delay: 0.4s;">
+                    <img src="sannnn/11.jpeg" alt="Fashion">
+                    <div class="gallery-overlay">
+                        <h4 class="text-white font-semibold">Runway Ready</h4>
+                        <p class="text-sm text-white opacity-75">Editorial Spread</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <p class="section-label justify-center mb-6">Our Services</p>
+                <h2 class="section-title font-display">
+                    What We Offer
+                    <span class="highlight">For You</span>
+                </h2>
+                <p class="mt-4 text-lg font-light" style="color: var(--text-medium);">
+                    Comprehensive services tailored to elevate your personal style and confidence.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card reveal" style="transition-delay: 0.1s;">
+                    <div class="card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl mb-3" style="color: var(--text-dark);">Personal Styling</h3>
+                    <p class="font-light leading-relaxed" style="color: var(--text-medium);">
+                        One-on-one consultations to discover your unique style DNA and create a wardrobe that speaks to your authentic self.
+                    </p>
+                </div>
+
+                <div class="card reveal" style="transition-delay: 0.15s;">
+                    <div class="card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl mb-3" style="color: var(--text-dark);">Beauty Consulting</h3>
+                    <p class="font-light leading-relaxed" style="color: var(--text-medium);">
+                        Expert guidance on skincare routines, makeup techniques, and beauty products tailored to your features.
+                    </p>
+                </div>
+
+                <div class="card reveal" style="transition-delay: 0.2s;">
+                    <div class="card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl mb-3" style="color: var(--text-dark);">Image Makeover</h3>
+                    <p class="font-light leading-relaxed" style="color: var(--text-medium);">
+                        Complete transformation experiences that reimagine your look while honoring your essence.
+                    </p>
+                </div>
+
+                <div class="card reveal" style="transition-delay: 0.25s;">
+                    <div class="card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl mb-3" style="color: var(--text-dark);">Color Analysis</h3>
+                    <p class="font-light leading-relaxed" style="color: var(--text-medium);">
+                        Discover your perfect color palette based on skin tone, hair, and eye color for a harmonious look.
+                    </p>
+                </div>
+
+                <div class="card reveal" style="transition-delay: 0.3s;">
+                    <div class="card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl mb-3" style="color: var(--text-dark);">Group Sessions</h3>
+                    <p class="font-light leading-relaxed" style="color: var(--text-medium);">
+                        Fun, interactive workshops for friends or colleagues exploring style and beauty together.
+                    </p>
+                </div>
+
+                <div class="card reveal" style="transition-delay: 0.35s;">
+                    <div class="card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.5">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl mb-3" style="color: var(--text-dark);">Virtual Consultation</h3>
+                    <p class="font-light leading-relaxed" style="color: var(--text-medium);">
+                        Remote styling sessions and advice from anywhere in the world, at your convenience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 lg:py-32" style="background: var(--bg-secondary);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <p class="section-label justify-center mb-6">Our Expertise</p>
+                <h2 class="section-title font-display">
+                    Proving Our
+                    <span class="highlight">Excellence</span>
+                </h2>
+                <p class="mt-4 text-lg font-light" style="color: var(--text-medium);">
+                    Our track record speaks for itself. We've helped thousands of clients discover their authentic style.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card text-center p-6 lg:p-8 reveal" style="transition-delay: 0.1s;">
+                    <div class="progress-circle mx-auto mb-4">
+                        <svg width="140" height="140">
+                            <circle class="bg-circle" cx="70" cy="70" r="60"/>
+                            <circle class="progress-ring" cx="70" cy="70" r="60" data-progress="82"/>
+                        </svg>
+                        <div class="progress-value">
+                            <span class="font-display text-3xl font-semibold" style="color: var(--accent-primary);">82%</span>
+                        </div>
+                    </div>
+                    <h4 class="font-semibold mb-1" style="color: var(--text-dark);">Success Rate</h4>
+                    <p class="text-sm font-light" style="color: var(--text-light);">Transformations completed</p>
+                </div>
+
+                <div class="card text-center p-6 lg:p-8 reveal" style="transition-delay: 0.2s;">
+                    <div class="progress-circle mx-auto mb-4">
+                        <svg width="140" height="140">
+                            <circle class="bg-circle" cx="70" cy="70" r="60"/>
+                            <circle class="progress-ring" cx="70" cy="70" r="60" data-progress="91"/>
+                        </svg>
+                        <div class="progress-value">
+                            <span class="font-display text-3xl font-semibold" style="color: var(--accent-primary);">91%</span>
+                        </div>
+                    </div>
+                    <h4 class="font-semibold mb-1" style="color: var(--text-dark);">Client Retention</h4>
+                    <p class="text-sm font-light" style="color: var(--text-light);">Returning clients</p>
+                </div>
+
+                <div class="card text-center p-6 lg:p-8 reveal" style="transition-delay: 0.3s;">
+                    <div class="progress-circle mx-auto mb-4">
+                        <svg width="140" height="140">
+                            <circle class="bg-circle" cx="70" cy="70" r="60"/>
+                            <circle class="progress-ring" cx="70" cy="70" r="60" data-progress="87"/>
+                        </svg>
+                        <div class="progress-value">
+                            <span class="font-display text-3xl font-semibold" style="color: var(--accent-primary);">87%</span>
+                        </div>
+                    </div>
+                    <h4 class="font-semibold mb-1" style="color: var(--text-dark);">Referral Rate</h4>
+                    <p class="text-sm font-light" style="color: var(--text-light);">Word of mouth</p>
+                </div>
+
+                <div class="card text-center p-6 lg:p-8 reveal" style="transition-delay: 0.4s;">
+                    <div class="progress-circle mx-auto mb-4">
+                        <svg width="140" height="140">
+                            <circle class="bg-circle" cx="70" cy="70" r="60"/>
+                            <circle class="progress-ring" cx="70" cy="70" r="60" data-progress="96"/>
+                        </svg>
+                        <div class="progress-value">
+                            <span class="font-display text-3xl font-semibold" style="color: var(--accent-primary);">96%</span>
+                        </div>
+                    </div>
+                    <h4 class="font-semibold mb-1" style="color: var(--text-dark);">Satisfaction</h4>
+                    <p class="text-sm font-light" style="color: var(--text-light);">Happy clients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 lg:py-32">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <h2 class="section-title font-display mb-6">
+                Ready to Discover
+                <span class="highlight">Your True Self?</span>
+            </h2>
+            <p class="text-lg font-light leading-relaxed mb-8" style="color: var(--text-medium);">
+                Begin your transformation journey today. Book a consultation and let us help you embrace the most beautiful version of yourself.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" class="btn-primary btn-book">
+                    Book Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 border-t" style="border-color: var(--border-soft);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-12">
+                <div>
+                    <a href="#" class="font-display text-2xl font-semibold" style="color: var(--accent-primary);">
+                        Sanika Artistry
+                    </a>
+                    <p class="mt-4 font-light leading-relaxed" style="color: var(--text-medium);">
+                        Celebrating individuality and helping you embrace your authentic self.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: var(--text-dark);">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="font-light transition-colors hover:text-[var(--accent-primary)]" style="color: var(--text-medium); text-decoration: none;">About Us</a></li>
+                        <li><a href="#gallery" class="font-light transition-colors hover:text-[var(--accent-primary)]" style="color: var(--text-medium); text-decoration: none;">Gallery</a></li>
+                        <li><a href="#services" class="font-light transition-colors hover:text-[var(--accent-primary)]" style="color: var(--text-medium); text-decoration: none;">Services</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: var(--text-dark);">Services</h4>
+                    <ul class="space-y-2">
+                        <li><span class="font-light" style="color: var(--text-medium);">Personal Styling</span></li>
+                        <li><span class="font-light" style="color: var(--text-medium);">Beauty Consulting</span></li>
+                        <li><span class="font-light" style="color: var(--text-medium);">Image Makeover</span></li>
+                        <li><span class="font-light" style="color: var(--text-medium);">Color Analysis</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t flex flex-col sm:flex-row justify-between items-center gap-4" style="border-color: var(--border-soft);">
+                <p class="text-sm font-light" style="color: var(--text-light);">
+                    © 2026 Sanika Artistry. All rights reserved.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/sanika_kalkute_makeover/" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:-translate-y-1" style="background: var(--bg-accent); color: var(--text-dark);" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-dark)" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <button class="lightbox-nav lightbox-prev" aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+            </button>
+            <button class="lightbox-nav lightbox-next" aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"/>
+                </svg>
+            </button>
+            <div id="lightboxMedia"></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="consultModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" id="closeModal" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <h3 class="font-display text-2xl font-semibold mb-6" style="color: var(--accent-primary);">Contact Information</h3>
+            <div class="flex flex-col gap-4 text-left">
+                <div class="flex items-center justify-between border-b pb-3" style="border-color: var(--border-soft);">
+                    <span class="font-semibold" style="color: var(--text-dark);">WhatsApp</span>
+                    <a href="https://wa.me/919876543210" target="_blank" class="hover:text-[var(--accent-primary)] font-medium transition-colors" style="color: var(--text-medium);">+91 8830104350</a>
+                </div>
+                <div class="flex items-center justify-between border-b pb-3" style="border-color: var(--border-soft);">
+                    <span class="font-semibold" style="color: var(--text-dark);">Contact</span>
+                    <a href="tel:+919876543210" class="hover:text-[var(--accent-primary)] font-medium transition-colors" style="color: var(--text-medium);">+91 8830104350</a>
+                </div>
+                <div class="flex items-center justify-between border-b pb-3" style="border-color: var(--border-soft);">
+                    <span class="font-semibold" style="color: var(--text-dark);">Instagram</span>
+                    <a href="https://instagram.com/sanikaartistry" target="_blank" class="hover:text-[var(--accent-primary)] font-medium transition-colors" style="color: var(--text-medium);">sanika_kalkute_makeover</a>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="font-semibold" style="color: var(--text-dark);">Email</span>
+                    <a href="mailto:hello@sanikaartistry.com" class="hover:text-[var(--accent-primary)] font-medium transition-colors" style="color: var(--text-medium);">sanikakalkute_8186@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const navbar = document.getElementById('navbar');
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxMedia = document.getElementById('lightboxMedia');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+        
+        // Modal Elements
+        const consultModal = document.getElementById('consultModal');
+        const closeModal = document.getElementById('closeModal');
+        const bookBtns = document.querySelectorAll('.btn-book');
+
+        let currentIndex = 0;
+        let menuOpen = false;
+
+        // Modal Functionality
+        bookBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                consultModal.classList.add('active');
+            });
+        });
+
+        if (closeModal) {
+            closeModal.addEventListener('click', () => {
+                consultModal.classList.remove('active');
+            });
+        }
+
+        if (consultModal) {
+            consultModal.addEventListener('click', (e) => {
+                if (e.target === consultModal) {
+                    consultModal.classList.remove('active');
+                }
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Mobile menu
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                menuOpen = !menuOpen;
+                menuToggle.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuOpen = false;
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Scroll reveal animations
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Progress circles
+        const progressRings = document.querySelectorAll('.progress-ring');
+        
+        const ringObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progress = entry.target.dataset.progress;
+                    const circumference = 2 * Math.PI * 60;
+                    const offset = circumference - (progress / 100) * circumference;
+                    entry.target.style.strokeDasharray = circumference;
+                    entry.target.style.strokeDashoffset = offset;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        progressRings.forEach(ring => ringObserver.observe(ring));
+
+        // Gallery Interactions
+        galleryItems.forEach(item => {
+            const video = item.querySelector('video');
+            if (video) {
+                item.addEventListener('mouseenter', () => video.play());
+                item.addEventListener('mouseleave', () => {
+                    video.pause();
+                    video.currentTime = 0;
+                });
+            }
+        });
+
+        // Lightbox functionality
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentIndex = index;
+                openLightbox(item);
+            });
+        });
+
+        function openLightbox(item) {
+            const img = item.querySelector('img');
+            const video = item.querySelector('video');
+            
+            if (video) {
+                lightboxMedia.innerHTML = `<video src="${video.src}" controls autoplay style="max-width: 90vw; max-height: 85vh; border-radius: 12px;"></video>`;
+            } else if (img) {
+                lightboxMedia.innerHTML = `<img src="${img.src}" alt="" style="max-width: 90vw; max-height: 85vh; border-radius: 12px;">`;
+            }
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxMedia.innerHTML = '';
+        }
+
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', closeLightbox);
+        }
+
+        if (lightbox) {
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+        }
+
+        function navigateLightbox(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = galleryItems.length - 1;
+            if (currentIndex >= galleryItems.length) currentIndex = 0;
+            openLightbox(galleryItems[currentIndex]);
+        }
+
+        if (lightboxPrev) lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+        if (lightboxNext) lightboxNext.addEventListener('click', () => navigateLightbox(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+    </script>
+</body>
+</html>
