@@ -390,9 +390,10 @@
         }
 
         .lightbox-close {
-            position: absolute;
-            top: -50px;
-            right: 0;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 201;
             width: 44px;
             height: 44px;
             background: white;
@@ -435,12 +436,15 @@
         /* Progress Circle */
         .progress-circle {
             position: relative;
-            width: 140px;
-            height: 140px;
+            width: 100%;
+            max-width: 140px;
+            aspect-ratio: 1;
         }
 
         .progress-circle svg {
             transform: rotate(-90deg);
+            width: 100%;
+            height: 100%;
         }
 
         .progress-circle .bg-circle {
@@ -621,8 +625,12 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
             .lightbox-nav {
-                display: none;
+                width: 40px;
+                height: 40px;
+                background: rgba(255, 255, 255, 0.2);
             }
         }
 
@@ -762,13 +770,13 @@
         </div>
     </section>
 
-    <section id="artist-info" class="py-20 lg:py-32" style="background-color: var(--bg-primary);">
+    <section id="artist-info" class="py-12 lg:py-32" style="background-color: var(--bg-primary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 
                 <div class="order-2 lg:order-1 reveal">
                     <div class="relative mb-6">
-                        <div class="absolute -top-10 left-1/2 flex gap-2" style="color: #641E16;">
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex gap-2" style="color: #641E16;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
                             </svg>
@@ -776,14 +784,14 @@
                                 <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
                             </svg>
                         </div>
-                        <h2 class="hero-title font-display" style="font-size: clamp(2.5rem, 6vw, 4rem); color: #4A2B29; line-height: 1.1;">
+                        <h2 class="hero-title font-display" style="font-size: clamp(1.8rem, 6vw, 4rem); color: #4A2B29; line-height: 1.1;">
                             Your Personality is<br>
                             What Makes You<br>
                             Character
                         </h2>
                     </div>
                     
-                    <div class="mt-8 font-medium leading-relaxed" style="color: var(--text-dark); max-w-md;">
+                    <div class="mt-8 font-medium leading-relaxed max-w-md" style="color: var(--text-dark);">
                         <p class="text-xl mb-2 flex items-center gap-3">
                             <span style="color: var(--accent-primary);">Contact Number:</span> 
                             +91 8830104350
@@ -803,7 +811,7 @@
 
                         </div>
 
-                        <div class="absolute top-1/2 -right-4 lg:-right-8 -translate-y-1/2 flex flex-col gap-3">
+                        <div class="absolute top-1/2 -right-2 sm:-right-4 lg:-right-8 -translate-y-1/2 flex flex-col gap-3">
                             <div class="w-6 h-6 rounded-full" style="background-color: #F0D5CD; box-shadow: 0 2px 4px rgba(0,0,0,0.05);"></div>
                             <div class="w-6 h-6 rounded-full" style="background-color: #D67D78; box-shadow: 0 2px 4px rgba(0,0,0,0.05);"></div>
                             <div class="w-6 h-6 rounded-full" style="background-color: #4A1A1E; box-shadow: 0 2px 4px rgba(0,0,0,0.05);"></div>
@@ -814,7 +822,7 @@
         </div>
     </section>
 
-    <section id="about" class="py-20 lg:py-32">
+    <section id="about" class="py-12 lg:py-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div class="reveal-left">
@@ -870,7 +878,7 @@
         </div>
     </section>
 
-    <section id="gallery" class="py-20 lg:py-32" style="background: var(--bg-secondary);">
+    <section id="gallery" class="py-12 lg:py-32" style="background: var(--bg-secondary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12 reveal">
                 <p class="section-label justify-center mb-6">Gallery</p>
@@ -965,7 +973,7 @@
         </div>
     </section>
 
-    <section id="services" class="py-20 lg:py-32">
+    <section id="services" class="py-12 lg:py-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16 reveal">
                 <p class="section-label justify-center mb-6">Our Services</p>
@@ -1060,7 +1068,7 @@
         </div>
     </section>
 
-    <section class="py-20 lg:py-32" style="background: var(--bg-secondary);">
+    <section class="py-12 lg:py-32" style="background: var(--bg-secondary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16 reveal">
                 <p class="section-label justify-center mb-6">Our Expertise</p>
@@ -1073,10 +1081,10 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
                 <div class="card text-center p-6 lg:p-8 reveal" style="transition-delay: 0.1s;">
                     <div class="progress-circle mx-auto mb-4">
-                        <svg width="140" height="140">
+                        <svg viewBox="0 0 140 140" class="w-full h-full">
                             <circle class="bg-circle" cx="70" cy="70" r="60"/>
                             <circle class="progress-ring" cx="70" cy="70" r="60" data-progress="82"/>
                         </svg>
@@ -1090,7 +1098,7 @@
 
                 <div class="card text-center p-6 lg:p-8 reveal" style="transition-delay: 0.2s;">
                     <div class="progress-circle mx-auto mb-4">
-                        <svg width="140" height="140">
+                        <svg viewBox="0 0 140 140" class="w-full h-full">
                             <circle class="bg-circle" cx="70" cy="70" r="60"/>
                             <circle class="progress-ring" cx="70" cy="70" r="60" data-progress="91"/>
                         </svg>
@@ -1104,7 +1112,7 @@
 
                 <div class="card text-center p-6 lg:p-8 reveal" style="transition-delay: 0.3s;">
                     <div class="progress-circle mx-auto mb-4">
-                        <svg width="140" height="140">
+                        <svg viewBox="0 0 140 140" class="w-full h-full">
                             <circle class="bg-circle" cx="70" cy="70" r="60"/>
                             <circle class="progress-ring" cx="70" cy="70" r="60" data-progress="87"/>
                         </svg>
@@ -1118,7 +1126,7 @@
 
                 <div class="card text-center p-6 lg:p-8 reveal" style="transition-delay: 0.4s;">
                     <div class="progress-circle mx-auto mb-4">
-                        <svg width="140" height="140">
+                        <svg viewBox="0 0 140 140" class="w-full h-full">
                             <circle class="bg-circle" cx="70" cy="70" r="60"/>
                             <circle class="progress-ring" cx="70" cy="70" r="60" data-progress="96"/>
                         </svg>
@@ -1133,7 +1141,7 @@
         </div>
     </section>
 
-    <section class="py-20 lg:py-32">
+    <section class="py-12 lg:py-32">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
             <h2 class="section-title font-display mb-6">
                 Ready to Discover
